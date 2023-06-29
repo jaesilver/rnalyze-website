@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f1f1f1; /* Set the desired background color */
+    }
+    
+    .text-field {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .text-field input {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: #000000; /* Set the desired text color */
+      font-size: 24px; /* Set the desired font size */
+      width: 500px; /* Set the desired width */
+      height: 200px; /* Set the desired height */
+    }
+    
+    .text-field::before {
+      content: attr(data-count);
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px;
+      font-size: 16px; /* Set the desired font size for character count */
+      color: #999999; /* Set the desired color for character count */
+    }
+  </style>
+</head>
+<body>
+  <div class="text-field" data-count="0">
+    <input type="text" oninput="updateCharacterCount(this)" placeholder="Type here..."/>
+  </div>
+
+  <script>
+    function updateCharacterCount(input) {
+      var countElement = input.parentNode;
+      countElement.setAttribute('data-count', input.value.length);
+    }
+  </script>
+</body>
+</html>
